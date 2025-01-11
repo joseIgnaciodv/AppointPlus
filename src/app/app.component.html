@@ -35,6 +35,31 @@
     </div>
   </div>
 
+  <div class="language-selection">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-world"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+      <path d="M3.6 9h16.8" />
+      <path d="M3.6 15h16.8" />
+      <path d="M11.5 3a17 17 0 0 0 0 18" />
+      <path d="M12.5 3a17 17 0 0 1 0 18" />
+    </svg>
+    <p>EN</p>
+    <span>|</span>
+    <p>ES</p>
+  </div>
+
   <div (click)="navigateToContacts()" class="side-nav-item">
     <div
       [ngClass]="{
@@ -46,10 +71,7 @@
     <p [ngClass]="{ 'active-item-mobile': activeContacts }">Contacts</p>
   </div>
 
-  <div
-    (click)="[playMyMessages(), navigateToNotifications()]"
-    class="side-nav-item"
-  >
+  <div (click)="navigateToNotifications()" class="side-nav-item">
     <div
       [ngClass]="{
         'show-active-marker': activeNotifications,
@@ -96,6 +118,30 @@
   </div>
 
   <div class="nav-items">
+    <div class="language-selection">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-world"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+        <path d="M3.6 9h16.8" />
+        <path d="M3.6 15h16.8" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
+      </svg>
+      <p>EN</p>
+      <span>|</span>
+      <p>ES</p>
+    </div>
     <div
       (click)="navigateToContacts()"
       [ngClass]="{ 'active-item': activeContacts }"
@@ -106,7 +152,7 @@
     </div>
 
     <div
-      (click)="[playMyMessages(), navigateToNotifications()]"
+      (click)="navigateToNotifications()"
       [ngClass]="{ 'active-item': activeNotifications }"
       class="nav-item"
     >
@@ -242,13 +288,21 @@
           <div class="phone-info">
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
-              fill="currentColor"
-              class="size-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-antenna-bars-5"
             >
-              <path
-                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
-              />
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 18l0 -3" />
+              <path d="M10 18l0 -6" />
+              <path d="M14 18l0 -9" />
+              <path d="M18 18l0 -12" />
             </svg>
 
             <svg
@@ -470,6 +524,7 @@
           </div>
         </div>
       </div>
+
       <div class="phone-frame">
         <div class="phone-header">
           <p>{{ currentTime }}</p>
@@ -477,13 +532,21 @@
           <div class="phone-info">
             <svg
               xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
-              fill="currentColor"
-              class="size-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-antenna-bars-5"
             >
-              <path
-                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
-              />
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 18l0 -3" />
+              <path d="M10 18l0 -6" />
+              <path d="M14 18l0 -9" />
+              <path d="M18 18l0 -12" />
             </svg>
 
             <svg
@@ -594,56 +657,18 @@
     </div>
 
     <div class="contacts-mobile">
-      <div class="phone-frame-container">
-        <div class="phone-frame">
-          <div class="phone-header">
-            <p>{{ currentTime }}</p>
+      <div *ngIf="activeReservations" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="add-reservation-video" autoplay muted loop playsinline>
+          <source src="assets/videos/add_reservation.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-            <div class="phone-info">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
-                />
-              </svg>
-
-              <svg
-                id="wifi-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.062 0 8.25 8.25 0 0 0-11.667 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.204 3.182a6 6 0 0 1 8.486 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0 3.75 3.75 0 0 0-5.304 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182a1.5 1.5 0 0 1 2.122 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0l-.53-.53a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 6.75a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 0 0-3-3h-15Zm15 1.5a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-6a1.5 1.5 0 0 1 1.5-1.5h15ZM4.5 9.75a.75.75 0 0 0-.75.75V15c0 .414.336.75.75.75H18a.75.75 0 0 0 .75-.75v-4.5a.75.75 0 0 0-.75-.75H4.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <div class="phone-island">
-            <div class="sound-bar"></div>
-          </div>
-        </div>
+      <div *ngIf="activeManageContacts" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="add-reservation-video" autoplay muted loop playsinline>
+          <source src="assets/videos/manage_contacts.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div class="section-title">
@@ -652,11 +677,45 @@
 
       <div class="section-subtitle">
         <p>
-          Manage your appointments effortlessly with a streamlined calendar
+          {{
+            activeReservations == true
+              ? "          Manage your appointments effortlessly with a streamlined calendar
           interface. View, create, or delete appointments with ease, keeping
           your schedule up-to-date and organized, ensuring your clients stay
-          informed.
+          informed."
+              : "Keep your contacts organized with convenient management features. Import contacts directly from your device for seamless access, and delete any unnecessary entries with ease. Designed for simplicity, the interface makes staying on top of your connections straightforward."
+          }}
         </p>
+      </div>
+
+      <div class="features-list">
+        <p>Features:</p>
+        <ol>
+          <li>Mange contacts directly from your device</li>
+          <li>Organize appointments visually in a calendar view</li>
+        </ol>
+      </div>
+
+      <div class="section-buttons-container">
+        <div
+          (click)="showReservationsSection()"
+          [ngClass]="{ 'active-section-button': activeReservations }"
+          matRipple
+          centered="True"
+          class="section-button"
+        >
+          <p>Add Reservations</p>
+        </div>
+
+        <div
+          (click)="showManageContactsSection()"
+          [ngClass]="{ 'active-section-button': activeManageContacts }"
+          matRipple
+          centered="True"
+          class="section-button"
+        >
+          <p>Manage Contacts</p>
+        </div>
       </div>
     </div>
 
@@ -668,64 +727,60 @@
 
         <div class="section-subtitle">
           <p>
-            Manage your appointments effortlessly with a streamlined calendar
+            {{
+              activeReservations == true
+                ? "          Manage your appointments effortlessly with a streamlined calendar
             interface. View, create, or delete appointments with ease, keeping
             your schedule up-to-date and organized, ensuring your clients stay
-            informed.
+            informed."
+                : "Keep your contacts organized with convenient management features. Import contacts directly from your device for seamless access, and delete any unnecessary entries with ease. Designed for simplicity, the interface makes staying on top of your connections straightforward."
+            }}
           </p>
+        </div>
+
+        <div class="features-list">
+          <p>Features:</p>
+          <ol>
+            <li>Mange contacts directly from your device</li>
+            <li>Organize appointments visually in a calendar view</li>
+          </ol>
+        </div>
+
+        <div class="section-buttons-container">
+          <div
+            (click)="showReservationsSection()"
+            [ngClass]="{ 'active-section-button': activeReservations }"
+            matRipple
+            centered="True"
+            class="section-button"
+          >
+            <p>Add Reservations</p>
+          </div>
+
+          <div
+            (click)="showManageContactsSection()"
+            [ngClass]="{ 'active-section-button': activeManageContacts }"
+            matRipple
+            centered="True"
+            class="section-button"
+          >
+            <p>Manage Contacts</p>
+          </div>
         </div>
       </div>
 
-      <div class="phone-frame-container">
-        <div class="phone-frame">
-          <div class="phone-header">
-            <p>{{ currentTime }}</p>
+      <div *ngIf="activeReservations" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="add-reservation-video" autoplay muted loop playsinline>
+          <source src="assets/videos/add_reservation.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-            <div class="phone-info">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
-                />
-              </svg>
-
-              <svg
-                id="wifi-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.062 0 8.25 8.25 0 0 0-11.667 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.204 3.182a6 6 0 0 1 8.486 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0 3.75 3.75 0 0 0-5.304 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182a1.5 1.5 0 0 1 2.122 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0l-.53-.53a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 6.75a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 0 0-3-3h-15Zm15 1.5a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-6a1.5 1.5 0 0 1 1.5-1.5h15ZM4.5 9.75a.75.75 0 0 0-.75.75V15c0 .414.336.75.75.75H18a.75.75 0 0 0 .75-.75v-4.5a.75.75 0 0 0-.75-.75H4.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <div class="phone-island">
-            <div class="sound-bar"></div>
-          </div>
-        </div>
+      <div *ngIf="activeManageContacts" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="add-reservation-video" autoplay muted loop playsinline>
+          <source src="assets/videos/manage_contacts.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </div>
@@ -747,19 +802,14 @@
 
     <div class="notifications-mobile">
       <div *ngIf="!clickedCustomer" class="phone-frame-video">
-        <video
-          (canplay)="playMyMessages()"
-          id="my-messages-video"
-          autoplay
-          muted
-          loop
-          playsinline
-        >
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="my-messages-video" autoplay muted loop playsinline>
           <source src="assets/videos/my_messages.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div *ngIf="clickedCustomer" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
         <video id="their-updates-video" autoplay muted loop playsinline>
           <source src="assets/videos/their_updates.mp4" type="video/mp4" />
         </video>
@@ -796,26 +846,21 @@
         class="toggle-view-button"
       >
         <p>
-          {{ clickedCustomer == false ? "Their updates" : "Your messages" }}
+          {{ clickedCustomer == false ? "Their Updates" : "Your Messages" }}
         </p>
       </div>
     </div>
 
     <div class="notifications-desktop">
       <div *ngIf="!clickedCustomer" class="phone-frame-video">
-        <video
-          (canplay)="playMyMessages()"
-          id="my-messages-video"
-          autoplay
-          muted
-          loop
-          playsinline
-        >
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="my-messages-video" autoplay muted loop playsinline>
           <source src="assets/videos/my_messages.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div *ngIf="clickedCustomer" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
         <video id="their-updates-video" autoplay muted loop playsinline>
           <source src="assets/videos/their_updates.mp4" type="video/mp4" />
         </video>
@@ -854,7 +899,7 @@
           class="toggle-view-button"
         >
           <p>
-            {{ clickedCustomer == false ? "Their updates" : "Your messages" }}
+            {{ clickedCustomer == false ? "Their Updates" : "Your Messages" }}
           </p>
         </div>
       </div>
@@ -874,56 +919,18 @@
     </div>
 
     <div class="custom-mobile">
-      <div class="phone-frame-container">
-        <div class="phone-frame">
-          <div class="phone-header">
-            <p>{{ currentTime }}</p>
+      <div *ngIf="activeBuyPoints" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="buy-points-video" autoplay muted loop playsinline>
+          <source src="assets/videos/buy_points.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-            <div class="phone-info">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
-                />
-              </svg>
-
-              <svg
-                id="wifi-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.062 0 8.25 8.25 0 0 0-11.667 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.204 3.182a6 6 0 0 1 8.486 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0 3.75 3.75 0 0 0-5.304 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182a1.5 1.5 0 0 1 2.122 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0l-.53-.53a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 6.75a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 0 0-3-3h-15Zm15 1.5a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-6a1.5 1.5 0 0 1 1.5-1.5h15ZM4.5 9.75a.75.75 0 0 0-.75.75V15c0 .414.336.75.75.75H18a.75.75 0 0 0 .75-.75v-4.5a.75.75 0 0 0-.75-.75H4.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <div class="phone-island">
-            <div class="sound-bar"></div>
-          </div>
-        </div>
+      <div *ngIf="activeSettings" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="my-settings-video" autoplay muted loop playsinline>
+          <source src="assets/videos/my_settings.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div class="section-title">
@@ -932,12 +939,57 @@
 
       <div class="section-subtitle">
         <p>
-          Choose the points package that best fits your needs and ensure
-          uninterrupted SMS notifications, keeping your clients informed and
-          appointments running smoothly. Our flexible plans and exclusive
-          discounts make it easy to maintain seamless communication while
-          focusing on delivering excellent service.
+          {{
+            activeBuyPoints == true
+              ? "              Choose the points package that best fits your needs and ensure
+            uninterrupted SMS notifications, keeping your clients informed and
+            appointments running smoothly. Our flexible plans and exclusive
+            discounts make it easy to maintain seamless communication while
+            focusing on delivering excellent service."
+              : "              Tailor the app to suit your preferences with ease. Update your
+            email address, change your mobile number for receiving and sending
+            SMS notifications, and choose your preferred language to
+            personalize both the app interface and messages. You can also
+            update your password securely, ensuring a fully customized and
+            secure experience."
+          }}
         </p>
+      </div>
+
+      <div class="features-list">
+        <p>Features:</p>
+        <ol>
+          <li>
+            Update account details like email, phone, or password and app
+            language preference
+          </li>
+          <li>
+            Check message points balance and buy points for additional messaging
+            credits
+          </li>
+        </ol>
+      </div>
+
+      <div class="section-buttons-container">
+        <div
+          (click)="showBuyPointsSection()"
+          [ngClass]="{ 'active-section-button': activeBuyPoints }"
+          matRipple
+          centered="True"
+          class="section-button"
+        >
+          <p>Buy Points</p>
+        </div>
+
+        <div
+          (click)="showSettingsSection()"
+          [ngClass]="{ 'active-section-button': activeSettings }"
+          matRipple
+          centered="True"
+          class="section-button"
+        >
+          <p>Customize Settings</p>
+        </div>
       </div>
     </div>
 
@@ -949,65 +1001,72 @@
 
         <div class="section-subtitle">
           <p>
-            Choose the points package that best fits your needs and ensure
-            uninterrupted SMS notifications, keeping your clients informed and
-            appointments running smoothly. Our flexible plans and exclusive
-            discounts make it easy to maintain seamless communication while
-            focusing on delivering excellent service.
+            {{
+              activeBuyPoints == true
+                ? "              Choose the points package that best fits your needs and ensure
+              uninterrupted SMS notifications, keeping your clients informed and
+              appointments running smoothly. Our flexible plans and exclusive
+              discounts make it easy to maintain seamless communication while
+              focusing on delivering excellent service."
+                : "              Tailor the app to suit your preferences with ease. Update your
+              email address, change your mobile number for receiving and sending
+              SMS notifications, and choose your preferred language to
+              personalize both the app interface and messages. You can also
+              update your password securely, ensuring a fully customized and
+              secure experience."
+            }}
           </p>
+        </div>
+
+        <div class="features-list">
+          <p>Features:</p>
+          <ol>
+            <li>
+              Update account details like email, phone, or password and app
+              language preference
+            </li>
+            <li>
+              Check message points balance and buy points for additional
+              messaging credits
+            </li>
+          </ol>
+        </div>
+
+        <div class="section-buttons-container">
+          <div
+            (click)="showBuyPointsSection()"
+            [ngClass]="{ 'active-section-button': activeBuyPoints }"
+            matRipple
+            centered="True"
+            class="section-button"
+          >
+            <p>Buy Points</p>
+          </div>
+
+          <div
+            (click)="showSettingsSection()"
+            [ngClass]="{ 'active-section-button': activeSettings }"
+            matRipple
+            centered="True"
+            class="section-button"
+          >
+            <p>Customize Settings</p>
+          </div>
         </div>
       </div>
 
-      <div class="phone-frame-container">
-        <div class="phone-frame">
-          <div class="phone-header">
-            <p>{{ currentTime }}</p>
+      <div *ngIf="activeBuyPoints" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="buy-points-video" autoplay muted loop playsinline>
+          <source src="assets/videos/buy_points.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-            <div class="phone-info">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 0 1-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 0 1 3 19.875v-6.75Z"
-                />
-              </svg>
-
-              <svg
-                id="wifi-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1.371 8.143c5.858-5.857 15.356-5.857 21.213 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.06 0c-4.98-4.979-13.053-4.979-18.032 0a.75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182c4.1-4.1 10.749-4.1 14.85 0a.75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.062 0 8.25 8.25 0 0 0-11.667 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.204 3.182a6 6 0 0 1 8.486 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0 3.75 3.75 0 0 0-5.304 0 .75.75 0 0 1-1.06 0l-.53-.53a.75.75 0 0 1 0-1.06Zm3.182 3.182a1.5 1.5 0 0 1 2.122 0 .75.75 0 0 1 0 1.061l-.53.53a.75.75 0 0 1-1.061 0l-.53-.53a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="size-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3.75 6.75a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3v-.037c.856-.174 1.5-.93 1.5-1.838v-2.25c0-.907-.644-1.664-1.5-1.837V9.75a3 3 0 0 0-3-3h-15Zm15 1.5a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5h-15a1.5 1.5 0 0 1-1.5-1.5v-6a1.5 1.5 0 0 1 1.5-1.5h15ZM4.5 9.75a.75.75 0 0 0-.75.75V15c0 .414.336.75.75.75H18a.75.75 0 0 0 .75-.75v-4.5a.75.75 0 0 0-.75-.75H4.5Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
-
-          <div class="phone-island">
-            <div class="sound-bar"></div>
-          </div>
-        </div>
+      <div *ngIf="activeSettings" class="phone-frame-video">
+        <!-- (canplay)="playNotificationVideos()" -->
+        <video id="my-settings-video" autoplay muted loop playsinline>
+          <source src="assets/videos/my_settings.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   </div>
@@ -1019,17 +1078,56 @@
 
       <div class="end-section-divider"></div>
     </div>
-    <div style="width: 100%; display: flex; border-radius: 20px">
-      <div class="video-container">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/_BqSCYMilwk?si=L3GTH85XMGbN2GuX"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        ></iframe>
+    <div class="video-container">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/_BqSCYMilwk?si=L3GTH85XMGbN2GuX"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="free-points-section">
+    <div class="section-header">
+      <div class="begin-section-divider"></div>
+      <p>Get Now</p>
+
+      <div class="end-section-divider"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">
+      <div class="icon-container">
+        <img src="assets/images/icon.png" alt="" />
       </div>
+      <p>AppointPlus</p>
+    </div>
+
+    <div class="copyright-container">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-copyright"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+        <path
+          d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"
+        />
+      </svg>
+      <p>{{ currentYear }} AppointPlus.</p>
+      <p id="last-sentence-footer">All rights reserved</p>
     </div>
   </div>
 </div>

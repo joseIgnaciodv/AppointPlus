@@ -21,18 +21,37 @@ export class AppComponent implements OnInit {
   showNotifications: boolean = false;
   showCustom: boolean = false;
   clickedNavigation: boolean = false;
+  activeBuyPoints: boolean = true;
+  activeSettings: boolean = false;
+  activeReservations: boolean = true;
+  activeManageContacts: boolean = false;
+  currentYear: number = new Date().getFullYear();
 
   playNotificationVideos() {
+    let pointsVideo = <HTMLVideoElement>(
+      document.getElementById('buy-points-video')
+    );
+    let settingsVideo = <HTMLVideoElement>(
+      document.getElementById('my-settings-video')
+    );
+
+    let reservationVideo = <HTMLVideoElement>(
+      document.getElementById('add-reservation-video')
+    );
+    let contactsVideo = <HTMLVideoElement>(
+      document.getElementById('manage-contacts-video')
+    );
     let myMessagesVideo = <HTMLVideoElement>(
       document.getElementById('my-messages-video')
     );
-
-    myMessagesVideo.play();
-
     let updatesVideo = <HTMLVideoElement>(
       document.getElementById('their-updates-video')
     );
-
+    myMessagesVideo.play();
+    reservationVideo.play();
+    contactsVideo.play();
+    pointsVideo.play();
+    settingsVideo.play();
     updatesVideo.play();
   }
 
@@ -47,6 +66,30 @@ export class AppComponent implements OnInit {
     if (this.clickedNavigation == false) {
       this.checkActiveSection();
     }
+  }
+
+  showReservationsSection() {
+    this.activeReservations = true;
+    this.activeManageContacts = false;
+    this.playNotificationVideos();
+  }
+
+  showManageContactsSection() {
+    this.activeReservations = false;
+    this.activeManageContacts = true;
+    this.playNotificationVideos();
+  }
+
+  showBuyPointsSection() {
+    this.activeBuyPoints = true;
+    this.activeSettings = false;
+    this.playNotificationVideos();
+  }
+
+  showSettingsSection() {
+    this.activeBuyPoints = false;
+    this.activeSettings = true;
+    this.playNotificationVideos();
   }
 
   checkActiveSection() {
@@ -89,7 +132,9 @@ export class AppComponent implements OnInit {
           scrollPosition -
           225 &&
       scrollPosition <=
-        personalizationSection!.getBoundingClientRect().bottom + scrollPosition
+        personalizationSection!.getBoundingClientRect().bottom +
+          scrollPosition -
+          75
     ) {
       this.showCustom = true;
       this.activePersonalization = true;
