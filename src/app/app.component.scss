@@ -1,3 +1,49 @@
+.scroll-top-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  z-index: 6;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 35px;
+  margin-right: 15px;
+  background-color: white;
+  //   border: 1.5px solid #a319ca;
+  box-shadow: 2px 2px 5px #6a6d70;
+
+  & svg {
+    width: 23.5px;
+    height: 23.5px;
+    stroke: #a319ca;
+    stroke-width: 2px;
+  }
+}
+
+@keyframes up-down {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, -5px);
+  }
+}
+
+.show-top-button {
+  opacity: 1;
+  transition: 0.4s;
+}
+
+.hide-top-button {
+  opacity: 0;
+  transition: 0.4s;
+  visibility: hidden;
+}
+
 .background-bottom-right {
   position: absolute;
   right: 0;
@@ -93,7 +139,7 @@
 .active-nav-marker {
   width: 6px;
   height: 25px;
-  background-color: #a319ca;
+  background-color: #13aafd;
   margin: auto 5px;
 }
 
@@ -108,7 +154,7 @@
 }
 
 .active-item-mobile {
-  color: #a319ca !important;
+  color: #13aafd !important;
 }
 
 .header {
@@ -132,7 +178,7 @@
   margin-right: 18px;
   width: fit-content;
   margin-left: 10px;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 
   & svg {
     width: 25px;
@@ -152,6 +198,12 @@
   & span {
     margin: 0 7px;
   }
+}
+
+.active-language {
+  color: #13aafd !important;
+  font-weight: 600;
+  pointer-events: none;
 }
 
 .menu-icon {
@@ -245,6 +297,7 @@
       sans-serif;
     font-size: 16px;
     color: #6a6d70;
+    font-weight: 500;
   }
 }
 
@@ -253,11 +306,11 @@
   opacity: 1;
   transform: translate(-4px, -8px);
   & p {
-    color: #a319ca;
+    color: #13aafd;
   }
 
   .nav-item-bottom-border {
-    background-color: #a319ca;
+    background-color: #13aafd;
   }
   transition: 0.3s;
 }
@@ -1111,6 +1164,21 @@
   }
 }
 
+.free-points-section-title {
+  display: flex;
+  width: 95%;
+
+  & p {
+    line-height: 1.3em;
+    margin: 0 0 0 15px;
+    font-size: 32px;
+    font-weight: 600;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    color: #515151;
+  }
+}
+
 .section-subtitle {
   display: flex;
   width: 95%;
@@ -1253,7 +1321,7 @@
   display: flex;
   flex-direction: column;
   width: 87%;
-  margin: 200px auto 30px auto;
+  margin: 75px auto 30px auto;
 }
 
 @media only screen and (min-width: 767px) {
@@ -1275,7 +1343,7 @@
     transition: 0.3s;
 
     & p {
-      color: #13aafd;
+      color: #a319ca;
     }
   }
 
@@ -1373,6 +1441,13 @@
     }
   }
 
+  .free-points-section-title {
+    width: 85%;
+    & p {
+      font-size: 40px;
+    }
+  }
+
   .section-subtitle {
     & p {
       font-size: 22px;
@@ -1453,8 +1528,16 @@
   .language-selection {
     & p:hover {
       cursor: pointer;
-      color: #13aafd;
+      color: #a319ca;
       transition: 0.3s;
+    }
+  }
+
+  .scroll-top-button:hover {
+    cursor: pointer;
+
+    & svg {
+      animation: up-down 1s infinite;
     }
   }
 }

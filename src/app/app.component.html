@@ -5,6 +5,32 @@
 <div class="background-image"></div>
 
 <div
+  [ngClass]="{
+    'show-top-button': showTopButton,
+    'hide-top-button': !showTopButton
+  }"
+  (click)="navigateTop()"
+  matRipple
+  centered="True"
+  class="scroll-top-button"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="size-6"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
+    />
+  </svg>
+</div>
+
+<div
   (click)="closeSideNav()"
   [ngClass]="{ 'show-side-nav-bg': openMenu, 'hide-side-nav-bg': !openMenu }"
   class="side-nav-background"
@@ -55,9 +81,19 @@
       <path d="M11.5 3a17 17 0 0 0 0 18" />
       <path d="M12.5 3a17 17 0 0 1 0 18" />
     </svg>
-    <p>EN</p>
+    <p
+      [ngClass]="{ 'active-language': englishLangActive }"
+      (click)="setEnglishLanguage()"
+    >
+      EN
+    </p>
     <span>|</span>
-    <p>ES</p>
+    <p
+      [ngClass]="{ 'active-language': spanishLangActive }"
+      (click)="setSpanishLanguage()"
+    >
+      ES
+    </p>
   </div>
 
   <div (click)="navigateToContacts()" class="side-nav-item">
@@ -68,7 +104,9 @@
       }"
       class="active-nav-marker"
     ></div>
-    <p [ngClass]="{ 'active-item-mobile': activeContacts }">Contacts</p>
+    <p [ngClass]="{ 'active-item-mobile': activeContacts }">
+      {{ languageTexts.contactsNavItem }}
+    </p>
   </div>
 
   <div (click)="navigateToNotifications()" class="side-nav-item">
@@ -80,7 +118,7 @@
       class="active-nav-marker"
     ></div>
     <p [ngClass]="{ 'active-item-mobile': activeNotifications }">
-      Notifications
+      {{ languageTexts.notificationsNavItem }}
     </p>
   </div>
 
@@ -93,7 +131,7 @@
       class="active-nav-marker"
     ></div>
     <p [ngClass]="{ 'active-item-mobile': activePersonalization }">
-      Personalization
+      {{ languageTexts.personalizationNavItem }}
     </p>
   </div>
 
@@ -105,7 +143,9 @@
       }"
       class="active-nav-marker"
     ></div>
-    <p [ngClass]="{ 'active-item-mobile': activeDemo }">Demo</p>
+    <p [ngClass]="{ 'active-item-mobile': activeDemo }">
+      {{ languageTexts.demoNavItem }}
+    </p>
   </div>
 </div>
 
@@ -138,16 +178,26 @@
         <path d="M11.5 3a17 17 0 0 0 0 18" />
         <path d="M12.5 3a17 17 0 0 1 0 18" />
       </svg>
-      <p>EN</p>
+      <p
+        [ngClass]="{ 'active-language': englishLangActive }"
+        (click)="setEnglishLanguage()"
+      >
+        EN
+      </p>
       <span>|</span>
-      <p>ES</p>
+      <p
+        [ngClass]="{ 'active-language': spanishLangActive }"
+        (click)="setSpanishLanguage()"
+      >
+        ES
+      </p>
     </div>
     <div
       (click)="navigateToContacts()"
       [ngClass]="{ 'active-item': activeContacts }"
       class="nav-item"
     >
-      <p>Contacts</p>
+      <p>{{ languageTexts.contactsNavItem }}</p>
       <div class="nav-item-bottom-border"></div>
     </div>
 
@@ -156,7 +206,7 @@
       [ngClass]="{ 'active-item': activeNotifications }"
       class="nav-item"
     >
-      <p>Notifications</p>
+      <p>{{ languageTexts.notificationsNavItem }}</p>
       <div class="nav-item-bottom-border"></div>
     </div>
 
@@ -165,7 +215,7 @@
       [ngClass]="{ 'active-item': activePersonalization }"
       class="nav-item"
     >
-      <p>Personalization</p>
+      <p>{{ languageTexts.personalizationNavItem }}</p>
       <div class="nav-item-bottom-border"></div>
     </div>
 
@@ -174,7 +224,7 @@
       [ngClass]="{ 'active-item': activeDemo }"
       class="nav-item"
     >
-      <p>Demo</p>
+      <p>{{ languageTexts.demoNavItem }}</p>
       <div class="nav-item-bottom-border"></div>
     </div>
   </div>
@@ -195,7 +245,11 @@
   </div>
 </div>
 
-<div (scroll)="onScroll()" id="page" class="main-content">
+<div
+  (scroll)="[onScroll(), checkScrollTopButton()]"
+  id="page"
+  class="main-content"
+>
   <div class="main-section-mobile">
     <div class="phone-container">
       <div class="outer-phone-layer">
@@ -225,7 +279,7 @@
         </div>
         <div class="points-balance">
           <div class="points-balance-header">
-            <p>Current balance:</p>
+            <p>{{ languageTexts.currentBalance }}:</p>
 
             <div class="add-points-button">
               <svg
@@ -244,12 +298,12 @@
                 />
               </svg>
 
-              <p>Add points</p>
+              <p>{{ languageTexts.addPoints }}</p>
             </div>
           </div>
 
           <div class="points-value">
-            <p>40 points</p>
+            <p>{{ languageTexts.pointsValue }}</p>
           </div>
 
           <div class="info-message-container">
@@ -268,15 +322,14 @@
               />
             </svg>
 
-            <p>1 message = 5 points</p>
+            <p>{{ languageTexts.messageInfo }}</p>
           </div>
         </div>
         <div class="message-container">
           <!-- <p>{{ formattedDate }}</p> -->
           <div class="message">
             <p>
-              Hi Jose Ignacio Del Valle Bustillo, remember that today from 11:00
-              AM to 12:00 PM you have a session
+              {{ languageTexts.appReminder }}
             </p>
           </div>
         </div>
@@ -339,7 +392,7 @@
         </div>
 
         <div class="app-header">
-          <p>Reservations</p>
+          <p>{{ languageTexts.appTitle }}</p>
           <div class="app-header-line"></div>
         </div>
 
@@ -371,7 +424,7 @@
               />
             </svg>
 
-            <p>My User</p>
+            <p>{{ languageTexts.appMyUser }}</p>
           </div>
 
           <div id="reservation-item" class="app-nav-item">
@@ -393,19 +446,29 @@
               />
             </svg>
 
-            <p>Reservations</p>
+            <p>{{ languageTexts.appReservations }}</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="title-container">
-      <p class="headline">
+      <p *ngIf="language == 'English'" class="headline">
         Simplify <span>Appointments</span>. Notify Instantly. Stay Connected.
       </p>
-      <p class="subheadline">
+
+      <p *ngIf="language != 'English'" class="headline">
+        Simplifica <span>Citas</span>. Notifica al instante. Mantente conectado.
+      </p>
+
+      <p *ngIf="language == 'English'" class="subheadline">
         The <span>ultimate scheduling app</span> for seamless contact
         management, real-time notifications, and appointment organization.
+      </p>
+
+      <p *ngIf="language != 'English'" class="subheadline">
+        La <span>aplicación definitiva</span> para una gestión de contactos sin
+        complicaciones, notificaciones en tiempo real y organización de citas.
       </p>
 
       <div
@@ -414,19 +477,29 @@
         centered="True"
         class="learn-more-button"
       >
-        <p>Learn more</p>
+        <p>{{ languageTexts.learnMore }}</p>
       </div>
     </div>
   </div>
 
   <div class="main-section-desktop">
     <div class="title-container">
-      <p class="headline">
+      <p *ngIf="language == 'English'" class="headline">
         Simplify <span>Appointments</span>. Notify Instantly. Stay Connected.
       </p>
-      <p class="subheadline">
+
+      <p *ngIf="language != 'English'" class="headline">
+        Simplifica <span>Citas</span>. Notifica al instante. Mantente conectado.
+      </p>
+
+      <p *ngIf="language == 'English'" class="subheadline">
         The <span>ultimate scheduling app</span> for seamless contact
         management, real-time notifications, and appointment organization.
+      </p>
+
+      <p *ngIf="language != 'English'" class="subheadline">
+        La <span>aplicación definitiva</span> para una gestión de contactos sin
+        complicaciones, notificaciones en tiempo real y organización de citas.
       </p>
 
       <div
@@ -435,7 +508,7 @@
         centered="True"
         class="learn-more-button"
       >
-        <p>Learn more</p>
+        <p>{{ languageTexts.learnMore }}</p>
       </div>
     </div>
 
@@ -467,7 +540,7 @@
         </div>
         <div class="points-balance">
           <div class="points-balance-header">
-            <p>Current balance:</p>
+            <p>{{ languageTexts.currentBalance }}:</p>
 
             <div class="add-points-button">
               <svg
@@ -486,12 +559,12 @@
                 />
               </svg>
 
-              <p>Add points</p>
+              <p>{{ languageTexts.addPoints }}</p>
             </div>
           </div>
 
           <div class="points-value">
-            <p>40 points</p>
+            <p>{{ languageTexts.pointsValue }}</p>
           </div>
 
           <div class="info-message-container">
@@ -510,7 +583,7 @@
               />
             </svg>
 
-            <p>1 message = 5 points</p>
+            <p>{{ languageTexts.messageInfo }}</p>
           </div>
         </div>
 
@@ -518,8 +591,7 @@
           <!-- <p>{{ formattedDate }}</p> -->
           <div class="message">
             <p>
-              Hi Jose Ignacio Del Valle Bustillo, remember that today from 08:00
-              AM to 09:00 AM you have a session
+              {{ languageTexts.appReminder }}
             </p>
           </div>
         </div>
@@ -583,7 +655,7 @@
         </div>
 
         <div class="app-header">
-          <p>Reservations</p>
+          <p>{{ languageTexts.appTitle }}</p>
           <div class="app-header-line"></div>
         </div>
 
@@ -615,7 +687,7 @@
               />
             </svg>
 
-            <p>My User</p>
+            <p>{{ languageTexts.appMyUser }}</p>
           </div>
 
           <div id="reservation-item" class="app-nav-item">
@@ -637,7 +709,7 @@
               />
             </svg>
 
-            <p>Reservations</p>
+            <p>{{ languageTexts.appReservations }}</p>
           </div>
         </div>
       </div>
@@ -651,7 +723,7 @@
   >
     <div class="section-header">
       <div class="begin-section-divider"></div>
-      <p>Contacts</p>
+      <p>{{ languageTexts.contactsSectionTitle }}</p>
 
       <div class="end-section-divider"></div>
     </div>
@@ -672,27 +744,20 @@
       </div>
 
       <div class="section-title">
-        <p>All Your Contacts and Appointments in One Place</p>
+        <p>{{ languageTexts.contactsHeadline }}</p>
       </div>
 
       <div class="section-subtitle">
         <p>
-          {{
-            activeReservations == true
-              ? "          Manage your appointments effortlessly with a streamlined calendar
-          interface. View, create, or delete appointments with ease, keeping
-          your schedule up-to-date and organized, ensuring your clients stay
-          informed."
-              : "Keep your contacts organized with convenient management features. Import contacts directly from your device for seamless access, and delete any unnecessary entries with ease. Designed for simplicity, the interface makes staying on top of your connections straightforward."
-          }}
+          {{ setContactsSubtitle() }}
         </p>
       </div>
 
       <div class="features-list">
-        <p>Features:</p>
+        <p>{{ languageTexts.featuresText }}:</p>
         <ol>
-          <li>Mange contacts directly from your device</li>
-          <li>Organize appointments visually in a calendar view</li>
+          <li>{{ languageTexts.contactsFeature1 }}</li>
+          <li>{{ languageTexts.contactsFeature2 }}</li>
         </ol>
       </div>
 
@@ -704,7 +769,7 @@
           centered="True"
           class="section-button"
         >
-          <p>Add Reservations</p>
+          <p>{{ languageTexts.addReservations }}</p>
         </div>
 
         <div
@@ -714,7 +779,7 @@
           centered="True"
           class="section-button"
         >
-          <p>Manage Contacts</p>
+          <p>{{ languageTexts.manageContacts }}</p>
         </div>
       </div>
     </div>
@@ -722,27 +787,20 @@
     <div class="contacts-desktop">
       <div class="info-section">
         <div class="section-title">
-          <p>All Your Contacts and Appointments in One Place</p>
+          <p>{{ languageTexts.contactsHeadline }}</p>
         </div>
 
         <div class="section-subtitle">
           <p>
-            {{
-              activeReservations == true
-                ? "          Manage your appointments effortlessly with a streamlined calendar
-            interface. View, create, or delete appointments with ease, keeping
-            your schedule up-to-date and organized, ensuring your clients stay
-            informed."
-                : "Keep your contacts organized with convenient management features. Import contacts directly from your device for seamless access, and delete any unnecessary entries with ease. Designed for simplicity, the interface makes staying on top of your connections straightforward."
-            }}
+            {{ setContactsSubtitle() }}
           </p>
         </div>
 
         <div class="features-list">
-          <p>Features:</p>
+          <p>{{ languageTexts.featuresText }}:</p>
           <ol>
-            <li>Mange contacts directly from your device</li>
-            <li>Organize appointments visually in a calendar view</li>
+            <li>{{ languageTexts.contactsFeature1 }}</li>
+            <li>{{ languageTexts.contactsFeature2 }}</li>
           </ol>
         </div>
 
@@ -754,7 +812,7 @@
             centered="True"
             class="section-button"
           >
-            <p>Add Reservations</p>
+            <p>{{ languageTexts.addReservations }}</p>
           </div>
 
           <div
@@ -764,7 +822,7 @@
             centered="True"
             class="section-button"
           >
-            <p>Manage Contacts</p>
+            <p>{{ languageTexts.manageContacts }}</p>
           </div>
         </div>
       </div>
@@ -795,7 +853,7 @@
   >
     <div class="section-header">
       <div class="begin-section-divider"></div>
-      <p>Notifications</p>
+      <p>{{ languageTexts.notificationsSectionTitle }}</p>
 
       <div class="end-section-divider"></div>
     </div>
@@ -816,26 +874,22 @@
       </div>
 
       <div class="section-title">
-        <p>Instant Updates, Seamless Communication</p>
+        <p>{{ languageTexts.notificationsHeadline }}</p>
       </div>
 
       <div class="section-subtitle">
         <p>
-          {{
-            clickedCustomer == false
-              ? "Ensure your clients stay informed with real-time SMS notifications for every appointment update. Whether it’s an appointment confirmation, or a timely reminder, the app automates instant and effective communication. Keep your operations running smoothly while providing clients with the reliability they expect."
-              : "Never miss a beat with instant SMS updates about your appointments. From confirmations to reminders, you’ll always know what’s next. Stay on top of your schedule effortlessly with timely notifications that keep you connected and prepared."
-          }}
+          {{ setNotificationsSubtitle() }}
         </p>
       </div>
 
       <div class="features-list">
-        <p>Features:</p>
+        <p>{{ languageTexts.featuresText }}:</p>
         <ol>
           <li>
-            Instant SMS notifications for appointment confirmation, and deletion
+            {{ languageTexts.notificationsFeature1 }}
           </li>
-          <li>Timely appointment reminders</li>
+          <li>{{ languageTexts.notificationsFeature2 }}</li>
         </ol>
       </div>
 
@@ -846,7 +900,7 @@
         class="toggle-view-button"
       >
         <p>
-          {{ clickedCustomer == false ? "Their Updates" : "Your Messages" }}
+          {{ setNotificationsButton() }}
         </p>
       </div>
     </div>
@@ -868,27 +922,22 @@
 
       <div class="info-section">
         <div class="section-title">
-          <p>Instant Updates, Seamless Communication</p>
+          <p>{{ languageTexts.notificationsHeadline }}</p>
         </div>
 
         <div class="section-subtitle">
           <p>
-            {{
-              clickedCustomer == false
-                ? "Ensure your clients stay informed with real-time SMS notifications for every appointment update. Whether it’s an appointment confirmation, or a timely reminder, the app automates instant and effective communication. Keep your operations running smoothly while providing clients with the reliability they expect."
-                : "Never miss a beat with instant SMS updates about your appointments. From confirmations to reminders, you’ll always know what’s next. Stay on top of your schedule effortlessly with timely notifications that keep you connected and prepared."
-            }}
+            {{ setNotificationsSubtitle() }}
           </p>
         </div>
 
         <div class="features-list">
-          <p>Features:</p>
+          <p>{{ languageTexts.featuresText }}:</p>
           <ol>
             <li>
-              Instant SMS notifications for appointment confirmation, and
-              deletion
+              {{ languageTexts.notificationsFeature1 }}
             </li>
-            <li>Timely appointment reminders</li>
+            <li>{{ languageTexts.notificationsFeature2 }}</li>
           </ol>
         </div>
 
@@ -899,7 +948,7 @@
           class="toggle-view-button"
         >
           <p>
-            {{ clickedCustomer == false ? "Their Updates" : "Your Messages" }}
+            {{ setNotificationsButton() }}
           </p>
         </div>
       </div>
@@ -913,7 +962,7 @@
   >
     <div class="section-header">
       <div class="begin-section-divider"></div>
-      <p>Personalization</p>
+      <p>{{ languageTexts.customSectionTitle }}</p>
 
       <div class="end-section-divider"></div>
     </div>
@@ -934,38 +983,23 @@
       </div>
 
       <div class="section-title">
-        <p>Take Control of Your App Experience</p>
+        <p>{{ languageTexts.customHeadline }}</p>
       </div>
 
       <div class="section-subtitle">
         <p>
-          {{
-            activeBuyPoints == true
-              ? "              Choose the points package that best fits your needs and ensure
-            uninterrupted SMS notifications, keeping your clients informed and
-            appointments running smoothly. Our flexible plans and exclusive
-            discounts make it easy to maintain seamless communication while
-            focusing on delivering excellent service."
-              : "              Tailor the app to suit your preferences with ease. Update your
-            email address, change your mobile number for receiving and sending
-            SMS notifications, and choose your preferred language to
-            personalize both the app interface and messages. You can also
-            update your password securely, ensuring a fully customized and
-            secure experience."
-          }}
+          {{ setCustomSubtitle() }}
         </p>
       </div>
 
       <div class="features-list">
-        <p>Features:</p>
+        <p>{{ languageTexts.featuresText }}:</p>
         <ol>
           <li>
-            Update account details like email, phone, or password and app
-            language preference
+            {{ languageTexts.customFeature1 }}
           </li>
           <li>
-            Check message points balance and buy points for additional messaging
-            credits
+            {{ languageTexts.customFeature2 }}
           </li>
         </ol>
       </div>
@@ -978,7 +1012,7 @@
           centered="True"
           class="section-button"
         >
-          <p>Buy Points</p>
+          <p>{{ languageTexts.buyPoints }}</p>
         </div>
 
         <div
@@ -988,7 +1022,7 @@
           centered="True"
           class="section-button"
         >
-          <p>Customize Settings</p>
+          <p>{{ languageTexts.customizeSettings }}</p>
         </div>
       </div>
     </div>
@@ -996,38 +1030,23 @@
     <div class="custom-desktop">
       <div class="info-section">
         <div class="section-title">
-          <p>Take Control of Your App Experience</p>
+          <p>{{ languageTexts.customHeadline }}</p>
         </div>
 
         <div class="section-subtitle">
           <p>
-            {{
-              activeBuyPoints == true
-                ? "              Choose the points package that best fits your needs and ensure
-              uninterrupted SMS notifications, keeping your clients informed and
-              appointments running smoothly. Our flexible plans and exclusive
-              discounts make it easy to maintain seamless communication while
-              focusing on delivering excellent service."
-                : "              Tailor the app to suit your preferences with ease. Update your
-              email address, change your mobile number for receiving and sending
-              SMS notifications, and choose your preferred language to
-              personalize both the app interface and messages. You can also
-              update your password securely, ensuring a fully customized and
-              secure experience."
-            }}
+            {{ setCustomSubtitle() }}
           </p>
         </div>
 
         <div class="features-list">
-          <p>Features:</p>
+          <p>{{ languageTexts.featuresText }}:</p>
           <ol>
             <li>
-              Update account details like email, phone, or password and app
-              language preference
+              {{ languageTexts.customFeature1 }}
             </li>
             <li>
-              Check message points balance and buy points for additional
-              messaging credits
+              {{ languageTexts.customFeature2 }}
             </li>
           </ol>
         </div>
@@ -1040,7 +1059,7 @@
             centered="True"
             class="section-button"
           >
-            <p>Buy Points</p>
+            <p>{{ languageTexts.buyPoints }}</p>
           </div>
 
           <div
@@ -1050,7 +1069,7 @@
             centered="True"
             class="section-button"
           >
-            <p>Customize Settings</p>
+            <p>{{ languageTexts.customizeSettings }}</p>
           </div>
         </div>
       </div>
@@ -1074,7 +1093,7 @@
   <div id="video" class="video-section">
     <div class="section-header">
       <div class="begin-section-divider"></div>
-      <p>App Demo</p>
+      <p>{{ languageTexts.demoSectionTitle }}</p>
 
       <div class="end-section-divider"></div>
     </div>
@@ -1093,9 +1112,21 @@
   <div class="free-points-section">
     <div class="section-header">
       <div class="begin-section-divider"></div>
-      <p>Get Now</p>
+      <p>{{ languageTexts.getNowSectionTitle }}</p>
 
       <div class="end-section-divider"></div>
+    </div>
+
+    <div class="free-points-section-title">
+      <p>
+        {{ languageTexts.downloadNow }}
+        <span style="color: #13aafd">{{ pointsValue }}</span>
+        {{ language == "English" ? "free!" : "gratis!" }}
+      </p>
+    </div>
+
+    <div class="section-subtitle">
+      <p>{{ languageTexts.downloadNowSubheadline }}</p>
     </div>
   </div>
 
@@ -1127,7 +1158,7 @@
         />
       </svg>
       <p>{{ currentYear }} AppointPlus.</p>
-      <p id="last-sentence-footer">All rights reserved</p>
+      <p id="last-sentence-footer">{{ languageTexts.rightsReserved }}</p>
     </div>
   </div>
 </div>

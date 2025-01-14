@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import englishTexts from 'src/assets/languages/english.json';
+import spanishTexts from 'src/assets/languages/spanish.json';
+import { Language } from './models/language';
 
 @Component({
   selector: 'app-root',
@@ -26,6 +29,175 @@ export class AppComponent implements OnInit {
   activeReservations: boolean = true;
   activeManageContacts: boolean = false;
   currentYear: number = new Date().getFullYear();
+  englishLangActive: boolean = true;
+  spanishLangActive: boolean = false;
+  showTopButton: boolean = false;
+  language: string = 'English';
+  pointsValue: string = '';
+  languageTexts: Language = {
+    contactsNavItem: '',
+    notificationsNavItem: '',
+    personalizationNavItem: '',
+    demoNavItem: '',
+    learnMore: '',
+    appTitle: '',
+    appReminder: '',
+    currentBalance: '',
+    addPoints: '',
+    pointsValue: '',
+    messageInfo: '',
+    appMyUser: '',
+    appReservations: '',
+    contactsSectionTitle: '',
+    contactsHeadline: '',
+    contactsSubHeadline1: '',
+    contactsSubHeadline2: '',
+    featuresText: '',
+    contactsFeature1: '',
+    contactsFeature2: '',
+    addReservations: '',
+    manageContacts: '',
+    notificationsSectionTitle: '',
+    notificationsHeadline: '',
+    notificationsSubHeadline1: '',
+    notificationsSubHeadline2: '',
+    notificationsFeature1: '',
+    notificationsFeature2: '',
+    theirUpdates: '',
+    yourMessages: '',
+    customSectionTitle: '',
+    customHeadline: '',
+    customSubHeadline1: '',
+    customSubHeadline2: '',
+    customFeature1: '',
+    customFeature2: '',
+    buyPoints: '',
+    customizeSettings: '',
+    demoSectionTitle: '',
+    getNowSectionTitle: '',
+    downloadNow: '',
+    downloadNowSubheadline: '',
+    rightsReserved: '',
+  };
+
+  setPointsValueText() {
+    if (this.language == 'English') {
+      this.pointsValue = '40 points';
+    } else {
+      this.pointsValue = '40 puntos';
+    }
+  }
+
+  checkScrollTopButton() {
+    let page = document.getElementById('page');
+    if (page!.scrollTop > 550) {
+      this.showTopButton = true;
+    } else {
+      this.showTopButton = false;
+    }
+  }
+
+  setLanguage() {
+    if (this.language == 'English') {
+      this.languageTexts = <Language>englishTexts;
+    } else {
+      this.languageTexts = <Language>spanishTexts;
+    }
+  }
+
+  setContactsSubtitle() {
+    let subtitle = '';
+    if (this.language == 'English') {
+      if (this.activeReservations == true) {
+        subtitle = englishTexts.contactsSubHeadline1;
+      } else {
+        subtitle = englishTexts.contactsSubHeadline2;
+      }
+    } else {
+      if (this.activeReservations == true) {
+        subtitle = spanishTexts.contactsSubHeadline1;
+      } else {
+        subtitle = spanishTexts.contactsSubHeadline2;
+      }
+    }
+
+    return subtitle;
+  }
+
+  setNotificationsSubtitle() {
+    let subtitle = '';
+    if (this.language == 'English') {
+      if (this.clickedCustomer == false) {
+        subtitle = englishTexts.notificationsSubHeadline1;
+      } else {
+        subtitle = englishTexts.notificationsSubHeadline2;
+      }
+    } else {
+      if (this.clickedCustomer == false) {
+        subtitle = spanishTexts.notificationsSubHeadline1;
+      } else {
+        subtitle = spanishTexts.notificationsSubHeadline2;
+      }
+    }
+
+    return subtitle;
+  }
+
+  setNotificationsButton() {
+    let button = '';
+    if (this.language == 'English') {
+      if (this.clickedCustomer == false) {
+        button = englishTexts.theirUpdates;
+      } else {
+        button = englishTexts.yourMessages;
+      }
+    } else {
+      if (this.clickedCustomer == false) {
+        button = spanishTexts.theirUpdates;
+      } else {
+        button = spanishTexts.yourMessages;
+      }
+    }
+
+    return button;
+  }
+
+  setCustomSubtitle() {
+    let subtitle = '';
+    if (this.language == 'English') {
+      if (this.activeBuyPoints == true) {
+        subtitle = englishTexts.customSubHeadline1;
+      } else {
+        subtitle = englishTexts.customSubHeadline2;
+      }
+    } else {
+      if (this.activeBuyPoints == true) {
+        subtitle = spanishTexts.customSubHeadline1;
+      } else {
+        subtitle = spanishTexts.customSubHeadline2;
+      }
+    }
+
+    return subtitle;
+  }
+
+  setEnglishLanguage() {
+    this.language = 'English';
+    this.englishLangActive = true;
+    this.spanishLangActive = false;
+    this.setLanguage();
+    this.setPointsValueText();
+    this.closeSideNav();
+  }
+
+  setSpanishLanguage() {
+    this.language = 'Spanish';
+    this.englishLangActive = false;
+    this.spanishLangActive = true;
+    this.setLanguage();
+    this.setPointsValueText();
+    this.closeSideNav();
+  }
 
   playNotificationVideos() {
     let pointsVideo = <HTMLVideoElement>(
@@ -324,6 +496,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.setCurrentTime();
     this.formatDate();
+    this.setEnglishLanguage();
     setInterval(() => {
       this.setCurrentTime();
     }, 60000);
