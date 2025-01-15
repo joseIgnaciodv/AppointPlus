@@ -1128,6 +1128,17 @@
     <div class="section-subtitle">
       <p>{{ languageTexts.downloadNowSubheadline }}</p>
     </div>
+
+    <img
+      *ngIf="language == 'English'"
+      src="assets/images/download_app_en.svg"
+      alt=""
+    />
+    <img
+      *ngIf="language != 'English'"
+      src="assets/images/download_app_es.svg"
+      alt=""
+    />
   </div>
 
   <div class="footer">
