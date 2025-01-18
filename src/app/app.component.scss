@@ -384,7 +384,7 @@
   width: fit-content;
   height: 45px;
   border-radius: 12px;
-  background-color: #13aafd;
+  background-color: #a319ca;
   margin-top: 30px;
   box-shadow: 1px 2px 7px #6a6d70;
 
@@ -428,7 +428,7 @@
 .phone-frame-video {
   display: flex;
   margin: 0 auto;
-  width: 230px;
+  width: 250px;
 
   & video {
     border-radius: 22px;
@@ -463,7 +463,7 @@
   height: 40px;
   margin-right: 10px;
   border-radius: 15px;
-  border: 2px solid #13aafd;
+  border: 2px solid #a319ca;
   margin-top: 15px;
 
   & p {
@@ -472,14 +472,14 @@
       sans-serif;
     font-weight: 500;
     font-size: 16px;
-    color: #13aafd;
+    color: #a319ca;
   }
 }
 
 .active-section-button {
-  background-color: #a319ca;
+  background-color: #13aafd;
   pointer-events: none;
-  border: 2px solid #a319ca;
+  border: 2px solid #13aafd;
 
   & p {
     color: white;
@@ -881,7 +881,7 @@
 .video-section {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 87%;
   margin: 350px auto 0 auto;
 
   & p {
@@ -1227,7 +1227,7 @@
   width: fit-content;
   height: 40px;
   border-radius: 15px;
-  border: 2px solid #13aafd;
+  border: 2px solid #a319ca;
   margin: 30px 0 30px 15px;
 
   & p {
@@ -1236,7 +1236,7 @@
       sans-serif;
     font-weight: 500;
     font-size: 16px;
-    color: #13aafd;
+    color: #a319ca;
   }
 }
 
@@ -1330,7 +1330,25 @@
   }
 }
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+  .section {
+    width: 95%;
+  }
+
+  .free-points-section {
+    width: 95%;
+  }
+
+  .video-section {
+    width: 95%;
+  }
+
+  .phone-frame-video {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
   .logo:hover {
     cursor: pointer;
   }
@@ -1401,7 +1419,7 @@
   }
 
   .video-section {
-    width: 93%;
+    // width: 93%;
     margin: 200px auto 0 auto;
 
     & p {
@@ -1469,7 +1487,7 @@
 
   .toggle-view-button:hover {
     cursor: pointer;
-    background-color: #13aafd;
+    background-color: #a319ca;
     transition: 0.4s;
 
     & p {
@@ -1482,10 +1500,6 @@
     & p {
       font-size: 24px;
     }
-  }
-
-  .section {
-    width: 95%;
   }
 
   .video-container {
@@ -1518,7 +1532,7 @@
 
   .section-button:hover {
     cursor: pointer;
-    background-color: #13aafd;
+    background-color: #a319ca;
     transition: 0.4s;
 
     & p {
@@ -1547,7 +1561,7 @@
     cursor: pointer;
 
     & svg {
-      animation: up-down 1s infinite;
+      animation: up-down 0.65s infinite;
     }
   }
 }

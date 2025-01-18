@@ -859,14 +859,14 @@
     </div>
 
     <div class="notifications-mobile">
-      <div *ngIf="!clickedCustomer" class="phone-frame-video">
+      <div *ngIf="activeMyMessages" class="phone-frame-video">
         <!-- (canplay)="playNotificationVideos()" -->
         <video id="my-messages-video" autoplay muted loop playsinline>
           <source src="assets/videos/my_messages.mp4" type="video/mp4" />
         </video>
       </div>
 
-      <div *ngIf="clickedCustomer" class="phone-frame-video">
+      <div *ngIf="activeTheirUpdates" class="phone-frame-video">
         <!-- (canplay)="playNotificationVideos()" -->
         <video id="their-updates-video" autoplay muted loop playsinline>
           <source src="assets/videos/their_updates.mp4" type="video/mp4" />
@@ -893,27 +893,38 @@
         </ol>
       </div>
 
-      <div
-        (click)="toggleNotificationsView()"
-        matRipple
-        centered="True"
-        class="toggle-view-button"
-      >
-        <p>
-          {{ setNotificationsButton() }}
-        </p>
+      <div class="section-buttons-container">
+        <div
+          (click)="setMyMessagesButton()"
+          [ngClass]="{ 'active-section-button': activeMyMessages }"
+          matRipple
+          centered="True"
+          class="section-button"
+        >
+          <p>{{ languageTexts.yourMessages }}</p>
+        </div>
+
+        <div
+          (click)="setTheirUpdatesButton()"
+          [ngClass]="{ 'active-section-button': activeTheirUpdates }"
+          matRipple
+          centered="True"
+          class="section-button"
+        >
+          <p>{{ languageTexts.theirUpdates }}</p>
+        </div>
       </div>
     </div>
 
     <div class="notifications-desktop">
-      <div *ngIf="!clickedCustomer" class="phone-frame-video">
+      <div *ngIf="activeMyMessages" class="phone-frame-video">
         <!-- (canplay)="playNotificationVideos()" -->
         <video id="my-messages-video" autoplay muted loop playsinline>
           <source src="assets/videos/my_messages.mp4" type="video/mp4" />
         </video>
       </div>
 
-      <div *ngIf="clickedCustomer" class="phone-frame-video">
+      <div *ngIf="activeTheirUpdates" class="phone-frame-video">
         <!-- (canplay)="playNotificationVideos()" -->
         <video id="their-updates-video" autoplay muted loop playsinline>
           <source src="assets/videos/their_updates.mp4" type="video/mp4" />
@@ -941,15 +952,26 @@
           </ol>
         </div>
 
-        <div
-          (click)="toggleNotificationsView()"
-          matRipple
-          centered="True"
-          class="toggle-view-button"
-        >
-          <p>
-            {{ setNotificationsButton() }}
-          </p>
+        <div class="section-buttons-container">
+          <div
+            (click)="setMyMessagesButton()"
+            [ngClass]="{ 'active-section-button': activeMyMessages }"
+            matRipple
+            centered="True"
+            class="section-button"
+          >
+            <p>{{ languageTexts.yourMessages }}</p>
+          </div>
+
+          <div
+            (click)="setTheirUpdatesButton()"
+            [ngClass]="{ 'active-section-button': activeTheirUpdates }"
+            matRipple
+            centered="True"
+            class="section-button"
+          >
+            <p>{{ languageTexts.theirUpdates }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1110,12 +1132,12 @@
   </div>
 
   <div class="free-points-section">
-    <div class="section-header">
+    <!-- <div class="section-header">
       <div class="begin-section-divider"></div>
       <p>{{ languageTexts.getNowSectionTitle }}</p>
 
       <div class="end-section-divider"></div>
-    </div>
+    </div> -->
 
     <div class="free-points-section-title">
       <p>
@@ -1128,6 +1150,8 @@
     <div class="section-subtitle">
       <p>{{ languageTexts.downloadNowSubheadline }}</p>
     </div>
+
+    <!-- <p class="available-soon-text">{{ languageTexts.availableSoon }}</p> -->
 
     <img
       *ngIf="language == 'English'"

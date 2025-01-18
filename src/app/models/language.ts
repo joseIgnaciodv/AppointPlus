@@ -41,5 +41,6 @@ export interface Language {
   getNowSectionTitle: string;
   downloadNow: string;
   downloadNowSubheadline: string;
+  availableSoon: string;
   rightsReserved: string;
 }

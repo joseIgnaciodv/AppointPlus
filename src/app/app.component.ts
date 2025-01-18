@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
   formattedDate: string = '';
   times: string[] = ['01:00', '01:30', '02:00', '02:30', '03:00', '03:30'];
   showLogo: boolean = true;
-  clickedCustomer: boolean = false;
+  activeMyMessages: boolean = true;
+  activeTheirUpdates: boolean = false;
   showContacts: boolean = false;
   showNotifications: boolean = false;
   showCustom: boolean = false;
@@ -77,6 +78,7 @@ export class AppComponent implements OnInit {
     getNowSectionTitle: '',
     downloadNow: '',
     downloadNowSubheadline: '',
+    availableSoon: '',
     rightsReserved: '',
   };
 
@@ -127,13 +129,13 @@ export class AppComponent implements OnInit {
   setNotificationsSubtitle() {
     let subtitle = '';
     if (this.language == 'English') {
-      if (this.clickedCustomer == false) {
+      if (this.activeMyMessages == true) {
         subtitle = englishTexts.notificationsSubHeadline1;
       } else {
         subtitle = englishTexts.notificationsSubHeadline2;
       }
     } else {
-      if (this.clickedCustomer == false) {
+      if (this.activeMyMessages == true) {
         subtitle = spanishTexts.notificationsSubHeadline1;
       } else {
         subtitle = spanishTexts.notificationsSubHeadline2;
@@ -143,23 +145,16 @@ export class AppComponent implements OnInit {
     return subtitle;
   }
 
-  setNotificationsButton() {
-    let button = '';
-    if (this.language == 'English') {
-      if (this.clickedCustomer == false) {
-        button = englishTexts.theirUpdates;
-      } else {
-        button = englishTexts.yourMessages;
-      }
-    } else {
-      if (this.clickedCustomer == false) {
-        button = spanishTexts.theirUpdates;
-      } else {
-        button = spanishTexts.yourMessages;
-      }
-    }
+  setTheirUpdatesButton() {
+    this.activeTheirUpdates = true;
+    this.activeMyMessages = false;
+    this.playNotificationVideos();
+  }
 
-    return button;
+  setMyMessagesButton() {
+    this.activeTheirUpdates = false;
+    this.activeMyMessages = true;
+    this.playNotificationVideos();
   }
 
   setCustomSubtitle() {
@@ -340,10 +335,7 @@ export class AppComponent implements OnInit {
     }, 550);
   }
 
-  toggleNotificationsView() {
-    this.clickedCustomer = !this.clickedCustomer;
-    this.playNotificationVideos();
-  }
+  showYourMessagesSection() {}
 
   navigateTop() {
     let page = document.getElementById('page');

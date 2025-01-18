@@ -5,7 +5,7 @@
   "demoNavItem": "Demo",
   "learnMore": "Saber más",
   "appTitle": "Reservas",
-  "appReminder": "Hola Jose Ignacio Del Valle Bustillo, recuerda que hoy de 08:00 AM a 09:00 AM tienes una sesión",
+  "appReminder": "Hola Jose Ignacio Del Valle Bustillo, recuerda que hoy de 11:00 AM a 12:00 PM tienes una sesión",
   "currentBalance": "Saldo actual",
   "addPoints": "Añadir puntos",
   "pointsValue": "40 puntos",
@@ -41,5 +41,6 @@
   "getNowSectionTitle": "Registrate Ahora",
   "downloadNow": "Descarga la app, registratre hoy y consigue",
   "downloadNowSubheadline": "Comienza con 40 puntos gratis y descubre el poder de una comunicación fluida! Estos puntos te permiten enviar y recibir notificaciones SMS, asegurando que todos estén informados y que las citas se desarrollen sin problemas. El resto de la aplicación está a tu disposición sin limitaciones: gestiona citas, personaliza preferencias y disfruta de una organización sin complicaciones.",
+  "availableSoon": "Disponible pronto en:",
   "rightsReserved": "Todos los derechos reservados"
 }
