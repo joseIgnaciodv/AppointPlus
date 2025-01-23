@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   showContacts: boolean = false;
   showNotifications: boolean = false;
   showCustom: boolean = false;
+  showDemo: boolean = false;
   clickedNavigation: boolean = false;
   activeBuyPoints: boolean = true;
   activeSettings: boolean = false;
@@ -35,6 +36,10 @@ export class AppComponent implements OnInit {
   showTopButton: boolean = false;
   language: string = 'English';
   pointsValue: string = '';
+  appDownloadURL: string = '';
+  showReservation: boolean = false;
+  showMessage: boolean = false;
+  showBalance: boolean = false;
   languageTexts: Language = {
     contactsNavItem: '',
     notificationsNavItem: '',
@@ -81,6 +86,18 @@ export class AppComponent implements OnInit {
     availableSoon: '',
     rightsReserved: '',
   };
+
+  showFeatures() {
+    setTimeout(() => {
+      this.showMessage = true;
+    }, 1500);
+    setTimeout(() => {
+      this.showReservation = true;
+    }, 3000);
+    setTimeout(() => {
+      this.showBalance = true;
+    }, 4500);
+  }
 
   setPointsValueText() {
     if (this.language == 'English') {
@@ -309,13 +326,15 @@ export class AppComponent implements OnInit {
       (scrollPosition + page!.clientHeight >= page!.scrollHeight - 5 &&
         scrollPosition + page!.clientHeight <= page!.scrollHeight + 5) ||
       scrollPosition >=
-        demoSection!.getBoundingClientRect().top + scrollPosition - 130
+        demoSection!.getBoundingClientRect().top + scrollPosition - 225
     ) {
+      this.showDemo = true;
       this.activeDemo = true;
     } else {
       this.showContacts = false;
       this.showNotifications = false;
       this.showCustom = false;
+      this.showDemo = false;
     }
   }
 
@@ -364,6 +383,7 @@ export class AppComponent implements OnInit {
     this.showContacts = false;
     this.showNotifications = false;
     this.showCustom = false;
+    this.showDemo = false;
     this.clickedNavigation = true;
     let contactsSection = document.getElementById('contacts-section');
     let contactsHeight = contactsSection!.offsetTop;
@@ -389,6 +409,7 @@ export class AppComponent implements OnInit {
     this.showContacts = false;
     this.showNotifications = false;
     this.showCustom = false;
+    this.showDemo = false;
     this.clickedNavigation = true;
     let demoHeight = document.getElementById('video')!.offsetTop;
 
@@ -411,6 +432,7 @@ export class AppComponent implements OnInit {
     this.showContacts = false;
     this.showNotifications = false;
     this.showCustom = false;
+    this.showDemo = false;
     this.clickedNavigation = true;
     let notificationsSection = document.getElementById('notifications-section');
     let notificationsHeight = notificationsSection!.offsetTop;
@@ -435,6 +457,7 @@ export class AppComponent implements OnInit {
     this.showContacts = false;
     this.showNotifications = false;
     this.showCustom = false;
+    this.showDemo = false;
     this.clickedNavigation = true;
     let customSection = document.getElementById('custom-section');
     let customHeight = customSection!.offsetTop;
@@ -489,6 +512,7 @@ export class AppComponent implements OnInit {
     this.setCurrentTime();
     this.formatDate();
     this.setEnglishLanguage();
+    this.showFeatures();
     setInterval(() => {
       this.setCurrentTime();
     }, 60000);

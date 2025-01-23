@@ -253,7 +253,13 @@
   <div class="main-section-mobile">
     <div class="phone-container">
       <div class="outer-phone-layer">
-        <div class="reservation">
+        <div
+          [ngClass]="{
+            'show-reservation-feature': showReservation,
+            'hide-reservation-feature': !showReservation
+          }"
+          class="reservation"
+        >
           <div class="reservation-marker"></div>
           <div style="display: flex; flex-direction: column; width: 100%">
             <div class="reservation-header">
@@ -277,7 +283,13 @@
             </div>
           </div>
         </div>
-        <div class="points-balance">
+        <div
+          [ngClass]="{
+            'show-feature': showBalance,
+            'hide-feature': !showBalance
+          }"
+          class="points-balance"
+        >
           <div class="points-balance-header">
             <p>{{ languageTexts.currentBalance }}:</p>
 
@@ -327,7 +339,13 @@
         </div>
         <div class="message-container">
           <!-- <p>{{ formattedDate }}</p> -->
-          <div class="message">
+          <div
+            [ngClass]="{
+              'show-feature': showMessage,
+              'hide-feature': !showMessage
+            }"
+            class="message"
+          >
             <p>
               {{ languageTexts.appReminder }}
             </p>
@@ -398,6 +416,18 @@
 
         <div class="date-picker">
           <p>{{ formattedDate }}</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
         </div>
 
         <div *ngFor="let time of times; index as i" class="time-item">
@@ -477,6 +507,19 @@
         centered="True"
         class="learn-more-button"
       >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-6"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
         <p>{{ languageTexts.learnMore }}</p>
       </div>
     </div>
@@ -508,13 +551,32 @@
         centered="True"
         class="learn-more-button"
       >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-6"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
         <p>{{ languageTexts.learnMore }}</p>
       </div>
     </div>
 
     <div class="phone-container">
       <div class="outer-phone-layer">
-        <div class="reservation">
+        <div
+          [ngClass]="{
+            'show-reservation-feature': showReservation,
+            'hide-reservation-feature': !showReservation
+          }"
+          class="reservation"
+        >
           <div class="reservation-marker"></div>
           <div style="display: flex; flex-direction: column; width: 100%">
             <div class="reservation-header">
@@ -538,7 +600,13 @@
             </div>
           </div>
         </div>
-        <div class="points-balance">
+        <div
+          [ngClass]="{
+            'show-feature': showBalance,
+            'hide-feature': !showBalance
+          }"
+          class="points-balance"
+        >
           <div class="points-balance-header">
             <p>{{ languageTexts.currentBalance }}:</p>
 
@@ -589,7 +657,13 @@
 
         <div class="message-container">
           <!-- <p>{{ formattedDate }}</p> -->
-          <div class="message">
+          <div
+            [ngClass]="{
+              'show-feature': showMessage,
+              'hide-feature': !showMessage
+            }"
+            class="message"
+          >
             <p>
               {{ languageTexts.appReminder }}
             </p>
@@ -661,6 +735,18 @@
 
         <div class="date-picker">
           <p>{{ formattedDate }}</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
         </div>
 
         <div *ngFor="let time of times; index as i" class="time-item">
@@ -722,10 +808,7 @@
     class="section"
   >
     <div class="section-header">
-      <div class="begin-section-divider"></div>
       <p>{{ languageTexts.contactsSectionTitle }}</p>
-
-      <div class="end-section-divider"></div>
     </div>
 
     <div class="contacts-mobile">
@@ -852,10 +935,7 @@
     class="section"
   >
     <div class="section-header">
-      <div class="begin-section-divider"></div>
       <p>{{ languageTexts.notificationsSectionTitle }}</p>
-
-      <div class="end-section-divider"></div>
     </div>
 
     <div class="notifications-mobile">
@@ -983,10 +1063,7 @@
     class="section"
   >
     <div class="section-header">
-      <div class="begin-section-divider"></div>
       <p>{{ languageTexts.customSectionTitle }}</p>
-
-      <div class="end-section-divider"></div>
     </div>
 
     <div class="custom-mobile">
@@ -1112,12 +1189,13 @@
     </div>
   </div>
 
-  <div id="video" class="video-section">
+  <div
+    [ngClass]="{ 'show-section': showDemo, 'hide-section': !showDemo }"
+    id="video"
+    class="video-section"
+  >
     <div class="section-header">
-      <div class="begin-section-divider"></div>
       <p>{{ languageTexts.demoSectionTitle }}</p>
-
-      <div class="end-section-divider"></div>
     </div>
     <div class="video-container">
       <iframe
@@ -1131,14 +1209,7 @@
     </div>
   </div>
 
-  <div class="free-points-section">
-    <!-- <div class="section-header">
-      <div class="begin-section-divider"></div>
-      <p>{{ languageTexts.getNowSectionTitle }}</p>
-
-      <div class="end-section-divider"></div>
-    </div> -->
-
+  <div *ngIf="appDownloadURL != ''" class="free-points-section">
     <div class="free-points-section-title">
       <p>
         {{ languageTexts.downloadNow }}
@@ -1151,19 +1222,15 @@
       <p>{{ languageTexts.downloadNowSubheadline }}</p>
     </div>
 
-    <!-- <p class="available-soon-text">{{ languageTexts.availableSoon }}</p> -->
-
-    <img
-      *ngIf="language == 'English'"
-      src="assets/images/download_app_en.svg"
-      alt=""
-    />
-    <img
-      *ngIf="language != 'English'"
-      src="assets/images/download_app_es.svg"
-      alt=""
-    />
+    <a *ngIf="language == 'English'" href="{{ appDownloadURL }}">
+      <img src="assets/images/download_app_en.svg" alt="" />
+    </a>
+    <a *ngIf="language != 'English'" href="{{ appDownloadURL }}">
+      <img src="assets/images/download_app_es.svg" alt="" />
+    </a>
   </div>
+
+  <div class="join-waitlist-section"></div>
 
   <div class="footer">
     <div class="footer-logo">
