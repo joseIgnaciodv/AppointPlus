@@ -40,6 +40,19 @@ export class AppComponent implements OnInit {
   showReservation: boolean = false;
   showMessage: boolean = false;
   showBalance: boolean = false;
+  focusName: boolean = false;
+  focusLastName: boolean = false;
+  focusEmail: boolean = false;
+  validForm: boolean = false;
+  validEmail: boolean = false;
+  firstName: string = '';
+  lastName: string = '';
+  email: string = '';
+  clearName: boolean = false;
+  clearLastName: boolean = false;
+  clearEmail: boolean = false;
+  showThankYou: boolean = false;
+  userJoined: boolean = false;
   languageTexts: Language = {
     contactsNavItem: '',
     notificationsNavItem: '',
@@ -83,9 +96,108 @@ export class AppComponent implements OnInit {
     getNowSectionTitle: '',
     downloadNow: '',
     downloadNowSubheadline: '',
-    availableSoon: '',
+    soundsInteresting: '',
+    comingSoon: '',
+    joinWaitlistTitle: '',
+    joinWaitlistSubtitle: '',
+    firstNameWaitlist: '',
+    lastNameWaitlist: '',
+    emailWaitlist: '',
+    joinWaitlistButton: '',
+    validEmailInfo: '',
+    emailFormat: '',
+    userJoinedText: '',
     rightsReserved: '',
   };
+
+  addUserWaitlist() {}
+
+  hideUserJoinedNotification() {
+    setTimeout(() => {
+      this.userJoined = false;
+    }, 8000);
+  }
+
+  checkNameInput() {
+    if (this.firstName == '') {
+      this.clearName = false;
+    } else {
+      this.clearName = true;
+    }
+  }
+
+  checkLastNameInput() {
+    if (this.lastName == '') {
+      this.clearLastName = false;
+    } else {
+      this.clearLastName = true;
+    }
+  }
+
+  checkEmailInput() {
+    if (this.email == '') {
+      this.clearEmail = false;
+    } else {
+      this.clearEmail = true;
+    }
+  }
+
+  clearNameInput() {
+    this.firstName = '';
+    this.checkNameInput();
+  }
+
+  clearLastNameInput() {
+    this.lastName = '';
+    this.checkLastNameInput();
+  }
+
+  clearEmailInput() {
+    this.email = '';
+    this.checkEmailInput();
+  }
+
+  checkForm() {
+    this.checkEmail();
+    if (this.firstName != '' && this.lastName != '' && this.validEmail) {
+      this.validForm = true;
+    } else {
+      this.validForm = false;
+    }
+  }
+
+  checkEmail() {
+    let emailPattern = /[a-zA-Z].+@[a-zA-Z].+\.[a-z]{2,4}/;
+    if (emailPattern.test(this.email) == true) {
+      this.validEmail = true;
+    } else {
+      this.validEmail = false;
+    }
+  }
+
+  focusedName() {
+    this.focusName = true;
+  }
+
+  unfocusedName() {
+    this.focusName = false;
+  }
+
+  focusedLastName() {
+    this.focusLastName = true;
+  }
+
+  unfocusedLastName() {
+    this.focusLastName = false;
+  }
+
+  focusedEmail() {
+    this.focusEmail = true;
+  }
+
+  unfocusedEmail() {
+    this.focusEmail = false;
+  }
 
   showFeatures() {
     setTimeout(() => {
@@ -444,7 +556,7 @@ export class AppComponent implements OnInit {
     this.activeDemo = false;
     setTimeout(() => {
       this.clickedNavigation = false;
-    }, 600);
+    }, 650);
 
     page!.scrollTo({
       top: notificationsHeight - 10,

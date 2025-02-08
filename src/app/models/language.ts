@@ -41,6 +41,16 @@ export interface Language {
   getNowSectionTitle: string;
   downloadNow: string;
   downloadNowSubheadline: string;
-  availableSoon: string;
+  soundsInteresting: string;
+  comingSoon: string;
+  joinWaitlistTitle: string;
+  joinWaitlistSubtitle: string;
+  firstNameWaitlist: string;
+  lastNameWaitlist: string;
+  emailWaitlist: string;
+  joinWaitlistButton: string;
+  validEmailInfo: string;
+  emailFormat: string;
+  userJoinedText: string;
   rightsReserved: string;
 }
