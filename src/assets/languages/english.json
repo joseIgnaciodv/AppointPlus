@@ -52,5 +52,6 @@
   "validEmailInfo": "Enter a valid email, ",
   "emailFormat": "name@example.com",
   "userJoinedText": "You're already on the waitlist! We'll notify you as soon as AppointPlus is available.",
+  "thankYouTitle": "You're on the waitlist!",
   "rightsReserved": "All rights reserved"
 }

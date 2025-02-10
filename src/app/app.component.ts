@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import englishTexts from 'src/assets/languages/english.json';
 import spanishTexts from 'src/assets/languages/spanish.json';
 import { Language } from './models/language';
+import { WaitlistService } from './service/waitlist.service';
 
 @Component({
   selector: 'app-root',
@@ -53,6 +54,8 @@ export class AppComponent implements OnInit {
   clearEmail: boolean = false;
   showThankYou: boolean = false;
   userJoined: boolean = false;
+  loadingWaitlist: boolean = false;
+  showCloseDialog: boolean = false;
   languageTexts: Language = {
     contactsNavItem: '',
     notificationsNavItem: '',
@@ -107,10 +110,58 @@ export class AppComponent implements OnInit {
     validEmailInfo: '',
     emailFormat: '',
     userJoinedText: '',
+    thankYouTitle: '',
     rightsReserved: '',
   };
 
-  addUserWaitlist() {}
+  constructor(private waitlist: WaitlistService) {}
+
+  closeDialog() {
+    this.showThankYou = false;
+  }
+
+  titleCase(str: string) {
+    return str.toLowerCase().replace(/\b\w/g, (s) => s.toUpperCase());
+  }
+
+  setThankYouSubtitle() {
+    let subtitle = '';
+    if (this.language == 'English') {
+      subtitle =
+        "! where we'll keep you updated and let you know as soon as AppointPlus is available.";
+    } else {
+      subtitle =
+        '! dónde te mantendremos informado y te avisaremos en cuanto AppointPlus esté disponible.';
+    }
+
+    return subtitle;
+  }
+
+  addUserWaitlist() {
+    this.loadingWaitlist = true;
+    this.waitlist.getRegisteredUser(this.email).subscribe((res) => {
+      if (res.name == '') {
+        this.waitlist
+          .addUserWaitlist(this.firstName, this.lastName, this.email)
+          .subscribe((status) => {
+            if (status == '200') {
+              this.showThankYou = true;
+              this.loadingWaitlist = false;
+              this.clearNameInput();
+              this.clearLastNameInput();
+              this.clearEmailInput();
+              setTimeout(() => {
+                this.showCloseDialog = true;
+              }, 6000);
+            }
+          });
+      } else {
+        this.userJoined = true;
+        this.hideUserJoinedNotification();
+        this.loadingWaitlist = false;
+      }
+    });
+  }
 
   hideUserJoinedNotification() {
     setTimeout(() => {
@@ -145,16 +196,19 @@ export class AppComponent implements OnInit {
   clearNameInput() {
     this.firstName = '';
     this.checkNameInput();
+    this.checkForm();
   }
 
   clearLastNameInput() {
     this.lastName = '';
     this.checkLastNameInput();
+    this.checkForm();
   }
 
   clearEmailInput() {
     this.email = '';
     this.checkEmailInput();
+    this.checkForm();
   }
 
   checkForm() {

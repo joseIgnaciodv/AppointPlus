@@ -52,5 +52,6 @@ export interface Language {
   validEmailInfo: string;
   emailFormat: string;
   userJoinedText: string;
+  thankYouTitle: string;
   rightsReserved: string;
 }

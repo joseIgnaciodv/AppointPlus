@@ -52,5 +52,6 @@
   "validEmailInfo": "Introduzca un correo valido, ",
   "emailFormat": "nombre@ejemplo.com",
   "userJoinedText": "¡Ya estás en la lista de espera! Te avisaremos en cuanto AppointPlus esté disponible.",
+  "thankYouTitle": "Estas en la lista de espera!",
   "rightsReserved": "Todos los derechos reservados"
 }

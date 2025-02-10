@@ -24,7 +24,69 @@
   }"
   class="thank-you-waitlist-background"
 ></div>
-<div class="thank-you-waitlist-dialog"></div>
+<div
+  [ngClass]="{
+    'show-thank-you-dialog': showThankYou,
+    'hide-thank-you-dialog': !showThankYou
+  }"
+  class="thank-you-waitlist-dialog"
+>
+  <div class="dialog-header">
+    <div class="logo-dialog">
+      <div class="icon-container">
+        <img src="assets/images/icon.png" alt="" />
+      </div>
+      <!-- <p>AppointPlus</p> -->
+    </div>
+
+    <div
+      (click)="closeDialog()"
+      [ngClass]="{
+        'show-close-dialog-icon': showCloseDialog,
+        'hide-close-dialog-icon': !showCloseDialog
+      }"
+      matRipple
+      centered="True"
+      class="close-dialog-icon"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="size-6"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <div class="thank-you-dialog-title">
+    <p>{{ languageTexts.thankYouTitle }}</p>
+  </div>
+
+  <div class="thank-you-dialog-subtitle">
+    <p>
+      {{
+        language == "English"
+          ? "Thanks for joining the waitlist "
+          : "Gracias por unirte a la lista de espera "
+      }}
+      <span class="user-name-text">{{ titleCase(firstName) }}, </span>
+
+      {{
+        language == "English"
+          ? "we've send an email to "
+          : "hemos enviado un correo a "
+      }}
+      <span class="user-email-text">{{ email }}</span>
+      {{ setThankYouSubtitle() }}
+    </p>
+  </div>
+</div>
 
 <div
   [ngClass]="{
@@ -1400,7 +1462,13 @@
         </div>
       </div>
 
+      <div *ngIf="loadingWaitlist" class="loading-button">
+        <span class="loader"></span>
+      </div>
+
       <div
+        *ngIf="!loadingWaitlist"
+        (click)="addUserWaitlist()"
         [ngClass]="{
           'enable-waitlist-button': validForm,
           'disable-waitlist-button': !validForm
