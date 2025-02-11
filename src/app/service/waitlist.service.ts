@@ -26,4 +26,10 @@ export class WaitlistService {
     let body = { name: name, lastName: lastName, email: email };
     return this.http.post(url, body, { responseType: 'text' });
   }
+
+  sendThankYouEmail(name: string, language: string, email: string) {
+    let url = this.baseApi + 'send_thank_you_email';
+    let body = { name: name, language: language, email: email };
+    return this.http.post(url, body, { responseType: 'text' });
+  }
 }

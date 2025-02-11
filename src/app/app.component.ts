@@ -56,6 +56,9 @@ export class AppComponent implements OnInit {
   userJoined: boolean = false;
   loadingWaitlist: boolean = false;
   showCloseDialog: boolean = false;
+  showClipboard: boolean = true;
+  showCopiedURL: boolean = false;
+  webURL: string = 'https://www.appointplusapp.es';
   languageTexts: Language = {
     contactsNavItem: '',
     notificationsNavItem: '',
@@ -116,8 +119,22 @@ export class AppComponent implements OnInit {
 
   constructor(private waitlist: WaitlistService) {}
 
+  async copyWebURL() {
+    await navigator.clipboard.writeText(this.webURL);
+    this.showClipboard = false;
+    this.showCopiedURL = true;
+
+    setTimeout(() => {
+      this.showClipboard = true;
+      this.showCopiedURL = false;
+    }, 3000);
+  }
+
   closeDialog() {
     this.showThankYou = false;
+    this.clearNameInput();
+    this.clearLastNameInput();
+    this.clearEmailInput();
   }
 
   titleCase(str: string) {
@@ -146,13 +163,16 @@ export class AppComponent implements OnInit {
           .subscribe((status) => {
             if (status == '200') {
               this.showThankYou = true;
-              this.loadingWaitlist = false;
-              this.clearNameInput();
-              this.clearLastNameInput();
-              this.clearEmailInput();
               setTimeout(() => {
                 this.showCloseDialog = true;
               }, 6000);
+              this.waitlist
+                .sendThankYouEmail(this.firstName, this.language, this.email)
+                .subscribe((send) => {
+                  if (send == '200') {
+                    this.loadingWaitlist = false;
+                  }
+                });
             }
           });
       } else {
@@ -164,6 +184,9 @@ export class AppComponent implements OnInit {
   }
 
   hideUserJoinedNotification() {
+    this.clearNameInput();
+    this.clearLastNameInput();
+    this.clearEmailInput();
     setTimeout(() => {
       this.userJoined = false;
     }, 8000);

@@ -38,30 +38,6 @@
       </div>
       <!-- <p>AppointPlus</p> -->
     </div>
-
-    <div
-      (click)="closeDialog()"
-      [ngClass]="{
-        'show-close-dialog-icon': showCloseDialog,
-        'hide-close-dialog-icon': !showCloseDialog
-      }"
-      matRipple
-      centered="True"
-      class="close-dialog-icon"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="size-6"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-          clip-rule="evenodd"
-        />
-      </svg>
-    </div>
   </div>
 
   <div class="thank-you-dialog-title">
@@ -72,10 +48,9 @@
     <p>
       {{
         language == "English"
-          ? "Thanks for joining the waitlist "
-          : "Gracias por unirte a la lista de espera "
+          ? "Thanks for joining the waitlist, "
+          : "Gracias por unirte a la lista de espera, "
       }}
-      <span class="user-name-text">{{ titleCase(firstName) }}, </span>
 
       {{
         language == "English"
@@ -85,6 +60,86 @@
       <span class="user-email-text">{{ email }}</span>
       {{ setThankYouSubtitle() }}
     </p>
+  </div>
+
+  <div style="display: flex; flex-direction: column">
+    <div class="web-url-container">
+      <p>{{ webURL }}</p>
+      <div
+        (click)="copyWebURL()"
+        matRipple
+        centered="True"
+        class="clipboard-button"
+      >
+        <svg
+          *ngIf="showClipboard"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-copy"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z"
+          />
+          <path
+            d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"
+          />
+        </svg>
+
+        <svg
+          *ngIf="showCopiedURL"
+          id="checked-copied-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-6"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div
+      [ngClass]="{
+        'expand-tooltip-container': showCopiedURL,
+        'collapse-tooltip-container': !showCopiedURL
+      }"
+      class="copied-tooltip-container"
+    >
+      <div
+        [ngClass]="{
+          'show-tooltip': showCopiedURL,
+          'hide-tooltip': !showCopiedURL
+        }"
+        class="tooltip"
+      >
+        <p>{{ language == "English" ? "Copied!" : "Copiado!" }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    (click)="closeDialog()"
+    [ngClass]="{
+      'show-close-dialog-icon': showCloseDialog,
+      'hide-close-dialog-icon': !showCloseDialog
+    }"
+    matRipple
+    centered="True"
+    class="back-to-site-button"
+  >
+    <p>{{ language == "English" ? "Back to site" : "Volver al sitio" }}</p>
   </div>
 </div>
 
