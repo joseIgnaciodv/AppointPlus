@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   activeDemo: boolean = false;
   currentTime: string = '';
   formattedDate: string = '';
-  times: string[] = ['01:00', '01:30', '02:00', '02:30', '03:00', '03:30'];
+  times: string[] = ['01:00', '01:30', '02:00', '02:30', '03:00'];
   showLogo: boolean = true;
   activeMyMessages: boolean = true;
   activeTheirUpdates: boolean = false;
