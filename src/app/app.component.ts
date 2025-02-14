@@ -538,9 +538,9 @@ export class AppComponent implements OnInit {
       top: contactsHeight - 10,
       behavior: 'smooth',
     });
-    setTimeout(() => {
-      this.clickedNavigation = false;
-    }, 550);
+    // setTimeout(() => {
+    this.clickedNavigation = false;
+    // }, 550);
   }
 
   showYourMessagesSection() {}
@@ -583,9 +583,9 @@ export class AppComponent implements OnInit {
     this.activePersonalization = false;
     this.activeDemo = false;
 
-    setTimeout(() => {
-      this.clickedNavigation = false;
-    }, 550);
+    // setTimeout(() => {
+    this.clickedNavigation = false;
+    // }, 800);
 
     page!.scrollTo({
       top: contactsHeight - 10,
@@ -612,9 +612,9 @@ export class AppComponent implements OnInit {
       top: demoHeight - 10,
       behavior: 'smooth',
     });
-    setTimeout(() => {
-      this.clickedNavigation = false;
-    }, 680);
+    // setTimeout(() => {
+    this.clickedNavigation = false;
+    // }, 1100);
     this.closeSideNav();
   }
 
@@ -632,9 +632,9 @@ export class AppComponent implements OnInit {
     this.activeNotifications = true;
     this.activePersonalization = false;
     this.activeDemo = false;
-    setTimeout(() => {
-      this.clickedNavigation = false;
-    }, 650);
+    // setTimeout(() => {
+    this.clickedNavigation = false;
+    // }, 900);
 
     page!.scrollTo({
       top: notificationsHeight - 10,
@@ -658,9 +658,9 @@ export class AppComponent implements OnInit {
     this.activePersonalization = true;
     this.activeDemo = false;
 
-    setTimeout(() => {
-      this.clickedNavigation = false;
-    }, 650);
+    // setTimeout(() => {
+    this.clickedNavigation = false;
+    // }, 1000);
 
     page!.scrollTo({
       top: customHeight - 10,
