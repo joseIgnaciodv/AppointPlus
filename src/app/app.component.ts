@@ -587,10 +587,13 @@ export class AppComponent implements OnInit {
       this.clickedNavigation = false;
     }, 550);
 
-    page!.scrollTo({
-      top: contactsHeight - 10,
-      behavior: 'smooth',
-    });
+    setTimeout(() => {
+      page!.scrollTo({
+        top: contactsHeight - 10,
+        behavior: 'smooth',
+      });
+    }, 100);
+
     this.closeSideNav();
   }
 
