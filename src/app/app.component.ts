@@ -588,10 +588,14 @@ export class AppComponent implements OnInit {
     }, 550);
 
     setTimeout(() => {
-      page!.scrollTo({
-        top: contactsHeight - 10,
+      contactsSection!.scrollIntoView({
         behavior: 'smooth',
+        block: 'start',
       });
+      // page!.scrollTo({
+      //   top: contactsHeight - 10,
+      //   behavior: 'smooth',
+      // });
     }, 100);
 
     this.closeSideNav();
